@@ -6,19 +6,17 @@
 
 int main(void) {
 	FILE *fpr;
-	FILE *fpw;
 	char target[10];
 	char newword[10];
+	char address[20] = "./text.txt";				//文件路径
 	printf("input target:\n");
 	scanf("%s",target);
 	printf("input newword:\n");
 	scanf("%s",newword);
 	char line[100];
 	fpr = fopen("./text.txt","r+");
-	fpw = fopen("./temp.txt","w+");
-	if(OK == ReplaceWord(fpr,fpw,target,newword,line)) {
+	if(OK == ReplaceWord(fpr,target,newword,line,address)) {
 			fclose(fpr);
-			fclose(fpw);
 	}
 	return 0;
 }
